@@ -1,24 +1,28 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
 import { Movie } from './movie.model';
-import { Observable } from 'rxjs/';
-import { Title } from '@angular/platform-browser';
-
-
+import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesDataService {
-  private _omdb_key = "ed83f1b9";
-  moviesArray = ['betman', 'Guardians of the Galaxy'];
-  private _url: string = `http://www.omdbapi.com/?t=${this.moviesArray}&apikey=${this._omdb_key}`;
+  moviesArray: Movie[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { this.getMovieFromJson() }
 
-  getMovies(): Observable<Movie[]> {
-    console.log(`test: ${this.moviesArray} `);
-
-    return this.http.get<Movie[]>(this._url);
+  getMovieFromJson() {
+    return this.http.get('assets/data/movies.json')
+      .subscribe(data => {
+        for (let i = 0; i < 3; i++) {
+          this.moviesArray.push(<Movie>data[i])
+        }
+        // console.log('getMovieFromJson', this.moviesArray);
+      })
   }
+
+  getMovie() {
+    return this.moviesArray
+  }
+
+
 
 }

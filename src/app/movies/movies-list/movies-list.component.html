@@ -1,6 +1,8 @@
-<p>
-  movies-list works!
-  capital T {{movies.Title}}
-  small t {{movies.title}}
+<div class="container">
+  <div class="col-xs-12">
+    <div class="movie">
+      <app-movie *ngFor="let movieEl of moviesArray; let i = index" [movie]="movieEl" [index]="i"></app-movie>
+    </div>
+  </div>
 
-</p>
+</div>

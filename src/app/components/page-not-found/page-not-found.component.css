@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Lora');
+h1,
+h2,
+h5 {
+    margin: auto;
+    text-align: center;
+    font-family: 'Lora', serif;
+}
+
+h5 {
+    margin-top: 1rem;
+    color: #ccc;
+}
+
+h2 {
+    margin-top: 1rem;
+}
