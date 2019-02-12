@@ -12,7 +12,7 @@ export class MoviesListComponent implements OnInit {
   constructor(private moviesDataService: MoviesDataService) { }
 
   ngOnInit() {
-    this.moviesArray = this.moviesDataService.getMovie()
+    this.moviesArray = this.moviesDataService.getMovies()
     console.log('movies-list', this.moviesArray);
 
   }

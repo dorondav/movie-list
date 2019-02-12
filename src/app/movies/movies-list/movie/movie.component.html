@@ -1,11 +1,13 @@
-<div class="card  border-dark mb-3" style="width: 18rem; cursor: pointer;" [routerLink]="[index]"
-  routerLinkActive="active">
-  <!-- <img class="card-img-top imagePath" [src]="movie.imagePath" alt="{{ movie.movieName }}"> -->
-  <div class="card-body">
-    <h4 class="card-title">{{ movie.title }}</h4>
-    <p class="badge badge-pill badge-danger">{{movie.genre}}</p>
-    <p class="card-text"> Directed By: {{ movie.director }}</p>
-    <p class="card-text">Release: {{movie.year | date : 'yyyy'}}</p>
-    <p class="card-text">Serial Number:{{ movie.serialNumber }}</p>
-    <p class="card-text">runtime: {{movie.runtime}}</p>
+<div class="container">
+  <div class="card  border-dark mb-3" style="width: 18rem; cursor: pointer;" [routerLink]="[index]"
+    routerLinkActive="active">
+    <div class="card-body">
+      <h4 class="card-title">{{ movie.title }}</h4>
+      <p class="badge badge-pill badge-danger">{{movie.genre}}</p>
+      <p class="card-text"> Directed By: {{ movie.director }}</p>
+      <p class="card-text">Release: {{movie.year | date : 'yyyy'}}</p>
+      <p class="card-text">Serial Number:{{ movie.serialNumber }}</p>
+      <p class="card-text">runtime: {{movie.runtime}}</p>
+    </div>
   </div>
+</div>

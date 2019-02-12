@@ -15,6 +15,7 @@ import { MoviesListComponent } from './movies/movies-list/movies-list.component'
 import { MovieDetailComponent } from './movies/movie-detail/movie-detail.component';
 import { MovieEditComponent } from './movies/movie-edit/movie-edit.component';
 import { MovieComponent } from './movies/movies-list/movie/movie.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 //* Services */
@@ -29,7 +30,8 @@ import { MoviesDataService } from './movies/movies-data.service';
     MovieDetailComponent,
     MovieEditComponent,
     MovieComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

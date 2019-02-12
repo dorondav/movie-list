@@ -19,10 +19,12 @@ export class MoviesDataService {
       })
   }
 
-  getMovie() {
+  getMovies() {
     return this.moviesArray
   }
 
-
+  selectMovie(index: number) {
+    return this.moviesArray[index];
+  }
 
 }

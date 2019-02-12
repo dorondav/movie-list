@@ -2,6 +2,10 @@
     background: #000000d4;
 }
 
+.nav-brand {
+    color: var( --warning-btn-color) !important;
+}
+
 .nav-item-link {
     color: white;
 }

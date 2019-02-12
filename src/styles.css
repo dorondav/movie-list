@@ -1,5 +1,22 @@
+:root {
+    --warning-btn-color: #ffc107;
+    --danger-btn-color: #dc3545;
+    --close-btn-color: #708090;
+    --border: 3px;
+}
+
 body {
     padding: 0;
     margin: 0;
     font-family: sans-serif;
+}
+
+/*Error Handdeling Css*/
+
+input.ng-invalid.ng-touched {
+    border: 1px solid var(--danger-btn-color);
+}
+
+.errorMsg {
+    color: var(--danger-btn-color);
 }
