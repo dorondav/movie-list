@@ -3,7 +3,7 @@
         "serialNumber": 123,
         "title": "Avengers: Infinity War",
         "year": "2018",
-        "runtime": "149 min",
+        "runtime": 149,
         "genre": "Action, Adventure, Fantasy, Sci-Fi",
         "director": "Anthony Russo, Joe Russo"
     },
@@ -11,7 +11,7 @@
         "serialNumber": 124,
         "title": "The Dark Knight",
         "year": "2008",
-        "runtime": "152 min",
+        "runtime": 152,
         "genre": "Action, Crime, Drama, Thriller",
         "director": "Christopher Nolan"
     },
@@ -19,7 +19,7 @@
         "serialNumber": 125,
         "title": "Bohemian Rhapsody",
         "year": "2018",
-        "runtime": "134 min",
+        "runtime": 134,
         "genre": "Biography, Drama, Music",
         "director": "Bryan Singer"
     }

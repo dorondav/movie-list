@@ -2,8 +2,16 @@
     background: #000000d4;
 }
 
-.nav-brand {
+.brand {
     color: var( --warning-btn-color) !important;
+    display: inline-block;
+    padding-top: .3125rem;
+    padding-bottom: .3125rem;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+    text-decoration: none;
 }
 
 .nav-item-link {

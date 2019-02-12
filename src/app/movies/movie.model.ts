@@ -2,11 +2,11 @@ export class Movie {
     serialNumber: number;
     title: string;
     year: Date;
-    runtime: string;
+    runtime: number;
     genre: string;
     director: string;
 
-    constructor(serialNumber: number, title: string, year: Date, runtime: string, genre: string, director: string) {
+    constructor(serialNumber: number, title: string, year: Date, runtime: number, genre: string, director: string) {
         this.serialNumber = serialNumber;
         this.title = title;
         this.year = year;

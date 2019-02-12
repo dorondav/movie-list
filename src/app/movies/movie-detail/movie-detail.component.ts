@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MoviesDataService } from '../movies-data.service';
 import { Movie } from '../movie.model';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-movie-detail',
@@ -11,20 +12,47 @@ import { Movie } from '../movie.model';
 export class MovieDetailComponent implements OnInit {
   movie: Movie;
   id: number;
-  constructor(private moviesDataService: MoviesDataService, private route: ActivatedRoute, private router: Router) { }
+  closeResult: string;
+
+  openModule
+  constructor(
+    private moviesDataService: MoviesDataService,
+    private route: ActivatedRoute,
+    private modalService: NgbModal,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.route.params.subscribe(
       (params: Params) => {
         this.id = +params['id'];
-        console.log(this.id);
-
         this.movie = this.moviesDataService.selectMovie(this.id);
-        console.log(this.movie);
-
-        //  this.album = this.albumService.getAlbum(this.id);
       }
     );
   }
 
+  onClose() {
+    this.router.navigate(['/movies']);
+  }
+
+
+
+  open(content) {
+    this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
 }
