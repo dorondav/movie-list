@@ -13,7 +13,6 @@ export class MovieDetailComponent implements OnInit {
   movie: Movie;
   id: number;
   closeResult: string;
-  openModule;
 
 
 
@@ -33,6 +32,12 @@ export class MovieDetailComponent implements OnInit {
     );
   }
 
+  onDelete() {
+    console.log('item deleted', this.id);
+    this.moviesDataService.deleteMovie(this.id);
+  }
+
+
   onClose() {
     this.router.navigate(['/movies']);
   }
@@ -40,6 +45,15 @@ export class MovieDetailComponent implements OnInit {
 
   openModal(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+
+    });
+    this.router.navigate(['/movies']);
+  }
+  openDeleteModal(deleteContent) {
+    this.modalService.open(deleteContent, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
