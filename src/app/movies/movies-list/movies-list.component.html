@@ -1,9 +1,15 @@
 <div class="container">
-  <div class="col-xs-12">
+  <div *ngIf="moviesArray.length >= 1; else msg">
     <div class="movie">
       <app-movie *ngFor="let movieEl of moviesArray; let i = index" [movie]="movieEl" [index]="i">
       </app-movie>
     </div>
   </div>
+  <ng-template #msg>
+    <div class="empty-array-msg">
+      <h2>Movie List Is Empty. <br> Please Enter New Movie To List:</h2>
+      <button class="btn btn-warning" type="submit" (click)="onEmptyArray()">Add Movie</button>
+    </div>
 
+  </ng-template>
 </div>

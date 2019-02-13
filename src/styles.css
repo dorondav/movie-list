@@ -2,6 +2,7 @@
     --warning-btn-color: #ffc107;
     --danger-btn-color: #dc3545;
     --close-btn-color: #708090;
+    --bg-dark: #141414;
     --border: 3px;
 }
 
@@ -9,6 +10,7 @@ body {
     padding: 0;
     margin: 0;
     font-family: sans-serif;
+    /* background: var(--bg-dark); */
 }
 
 /*Error Handdeling Css*/

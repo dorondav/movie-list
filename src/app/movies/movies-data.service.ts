@@ -28,7 +28,10 @@ export class MoviesDataService {
   selectMovie(index: number) {
     return this.moviesArray[index];
   }
-
+  addNewMovie(movie: Movie) {
+    this.moviesArray.push(movie);
+    this.movieChange.next(this.moviesArray.slice());
+  }
   updateMovie(index: number, newMovie: Movie) {
     this.moviesArray[index] = newMovie;
     this.movieChange.next(this.moviesArray.slice());

@@ -1,3 +1,53 @@
-<p>
-  add-movie works!
-</p>
+<!-- <app-movies-list></app-movies-list> -->
+
+<div class="container">
+  <div class="add-movie">
+    <h2>Add New Movie</h2>
+    <div class="card-body">
+      <form [formGroup]="newMovieForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="title">Title:</label>
+          <input type="text" formControlName="title" class="form-control" id="title" name="title"
+            aria-describedby="title">
+          <span class="errorMsg" *ngIf="!newMovieForm.get('title').valid && newMovieForm.get('title').touched">This
+            title field is invalid!</span>
+        </div>
+        <div class="form-group">
+          <label for="director"> Director</label>
+          <input type="text" formControlName="director" class="form-control" id="director" name="director"
+            aria-describedby="director">
+          <span class="errorMsg"
+            *ngIf="!newMovieForm.get('director').valid && newMovieForm.get('director').touched">This
+            director name field is invalid!</span>
+        </div>
+
+        <div class="form-group">
+          <label for="year"> Year:</label>
+          <input type="date" formControlName="year" class="form-control" id=" year" name="year" aria-describedby="year">
+          <span class="errorMsg" *ngIf="!newMovieForm.get('year').valid && newMovieForm.get('year').touched">This
+            year field is invalid!</span>
+        </div>
+        <div class="form-group">
+          <label for="runtime">Runtime (Min):</label>
+          <input type="number" formControlName="runtime" class="form-control" id="runtime" name="runtime"
+            aria-describedby="runtime">
+          <span class="errorMsg" *ngIf="!newMovieForm.get('runtime').valid && newMovieForm.get('runtime').touched">This
+            runtime field is invalid!</span>
+        </div>
+        <div class="form-group">
+          <label for="genre"> Genres:</label>
+          <input type="text" formControlName="genre" class="form-control" id="genre" name="genre"
+            aria-describedby="genre">
+          <span class="errorMsg" *ngIf="!newMovieForm.get('genre').valid && newMovieForm.get('genre').touched">This
+            genre field is invalid!</span>
+        </div>
+        <div class="form-group">
+          <input type="hidden" formControlName="serialNumber" class="form-control" id="serialNumber"
+            value="serialNumber" name="serialNumber" aria-describedby="serialNumber">
+        </div>
+      </form>
+      <button class=" btn btn-warning btn-add" (click)="onSaveNewMovie()" [disabled]="!newMovieForm.valid"> Add Movie
+      </button>
+    </div>
+  </div>
+</div>

@@ -3,3 +3,7 @@
     flex-flow: row wrap;
     justify-content: space-around;
 }
+
+.empty-array-msg {
+    text-align: center;
+}

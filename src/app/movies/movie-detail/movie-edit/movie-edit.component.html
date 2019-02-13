@@ -1,17 +1,7 @@
 <div class="container">
-  <div class="movie-details">
+  <div class="movie-edit">
     <div class="card-body">
       <form [formGroup]="editMovieForm" (ngSubmit)="onSubmit()">
-
-        <!-- <div class="form-group">
-          <label for="albumName">Album Name:</label>
-          <input type="text" formControlName="albumName" class="form-control" id="albumName" name="albumName"
-            aria-describedby="albumName">
-          <span class="errorMsg"
-            *ngIf="!editMovieForm.get('albumName').valid && editMovieForm.get('albumName').touched">This
-            name is invalid!</span>
-
-        </div> -->
         <div class="form-group">
           <label for="title">Title:</label>
           <input type="text" formControlName="title" class="form-control" id="title" name="title"
@@ -29,7 +19,7 @@
         </div>
 
         <div class="form-group">
-          <label for="year">Release Year:</label>
+          <label for="year">Year:</label>
           <input type="date" formControlName="year" class="form-control" placeholder="{{ movie.year }}" id=" year"
             name="year" aria-describedby="year">
           <span class="errorMsg" *ngIf="!editMovieForm.get('year').valid && editMovieForm.get('year').touched">This
