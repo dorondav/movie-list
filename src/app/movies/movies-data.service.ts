@@ -33,4 +33,9 @@ export class MoviesDataService {
     this.moviesArray[index] = newMovie;
     this.movieChange.next(this.moviesArray.slice());
   }
+
+  deleteMovie(index: number) {
+    this.moviesArray.splice(index, 1);
+    this.movieChange.next(this.moviesArray.slice());
+  }
 }

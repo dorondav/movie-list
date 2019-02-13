@@ -51,12 +51,8 @@
             name is invalid!</span>
         </div>
         <div class="form-group">
-          <label for="serialNumber"> serialNumbers:</label>
-          <input type="text" formControlName="serialNumber" class="form-control" id="serialNumber" name="serialNumber"
-            aria-describedby="serialNumber">
-          <span class="errorMsg"
-            *ngIf="!editMovieForm.get('serialNumber').valid && editMovieForm.get('serialNumber').touched">This
-            name is invalid!</span>
+          <input type="hidden" formControlName="serialNumber" class="form-control" id="serialNumber"
+            value="serialNumber" name="serialNumber" aria-describedby="serialNumber">
         </div>
         <!--   <div class="form-group">
           <label for="serialNumber">Movie serialNumber:</label>
@@ -64,7 +60,7 @@
         </div> -->
       </form>
       <button class=" btn btn-warning btn-save" (click)="onUpdateMovie()">Save</button>
-      <button class=" btn btn-outline-danger btn-delete">delete</button>
+      <button class=" btn btn-outline-danger btn-delete" (click)="onDelete()">delete</button>
     </div>
   </div>
 </div>

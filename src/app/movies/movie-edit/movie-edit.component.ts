@@ -31,10 +31,8 @@ export class MovieEditComponent implements OnInit {
       }
     );
     this.initForm();
+
   }
-
-
-
   initForm() {
     this.editMovieForm = new FormGroup({
       'title': new FormControl(this.movie.title, Validators.required),
@@ -43,7 +41,7 @@ export class MovieEditComponent implements OnInit {
       'runtime': new FormControl(this.movie.runtime, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)
       ]),
       'genre': new FormControl(this.movie.genre, Validators.required),
-      'serialNumber': new FormControl({ value: this.movie.serialNumber, disabled: true }),
+      'serialNumber': new FormControl(this.movie.serialNumber),
 
     })
 
@@ -51,6 +49,11 @@ export class MovieEditComponent implements OnInit {
 
   onUpdateMovie() {
     this.moviesDataService.updateMovie(this.id, this.editMovieForm.value);
+  }
 
+
+  onDelete() {
+    console.log('item deleted', this.id);
+    this.moviesDataService.deleteMovie(this.id);
   }
 }
