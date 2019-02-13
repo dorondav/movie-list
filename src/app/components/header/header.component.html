@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md  fixed-top nav-color">
-  <a class="brand" routerLink="/" routerLinkActive="active">Home</a>
+  <a class="brand" routerLink="/movies" routerLinkActive="active">Movies</a>
   <button class="navbar-toggler hidden-sm-up" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed"
     data-target="#navbarsDefault" aria-controls="navbarsDefault" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -7,8 +7,13 @@
   <div [ngbCollapse]="isNavbarCollapsed" class="collapse navbar-collapse" id="navbarsDefault">
     <ul class="navbar-nav mr-auto">
       <li ngbDropdown>
-        <a class="nav-link nav-item-link" routerLinkActive="active" id="id01" routerLink="/movies">
-          Movie</a>
+        <a class="nav-link nav-item-link" routerLinkActive="active" id="id01" routerLink="/add-movie">
+          Add New Movie</a>
+      </li>
+
+      <li ngbDropdown>
+        <a class="nav-link nav-item-link" routerLinkActive="active" id="id01" routerLink="/">
+          Home</a>
       </li>
 
     </ul>

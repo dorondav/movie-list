@@ -17,6 +17,7 @@ import { MovieComponent } from './movies/movies-list/movie/movie.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { MovieEditComponent } from './movies/movie-detail/movie-edit/movie-edit.component';
+import { AddMovieComponent } from './movies/add-movie/add-movie.component';
 
 //* Services */
 import { MoviesDataService } from './movies/movies-data.service';
@@ -32,7 +33,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MovieEditComponent,
     MovieComponent,
     PageNotFoundComponent,
-    HomePageComponent
+    HomePageComponent,
+    AddMovieComponent
   ],
   imports: [
     BrowserModule,

@@ -6,6 +6,7 @@ import { MovieDetailComponent } from './movies/movie-detail/movie-detail.compone
 import { MovieEditComponent } from './movies/movie-detail/movie-edit/movie-edit.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { AddMovieComponent } from './movies/add-movie/add-movie.component';
 
 
 const routes: Routes = [
@@ -16,7 +17,8 @@ const routes: Routes = [
       { path: ':id/edit', component: MovieEditComponent },
     ]
   },
-  { path: 'page-not-found', component: PageNotFoundComponent },
+  { path: 'add-movie', component: AddMovieComponent },
+  // { path: 'page-not-found', component: PageNotFoundComponent },
   { path: "**", component: PageNotFoundComponent }
 ];
 
