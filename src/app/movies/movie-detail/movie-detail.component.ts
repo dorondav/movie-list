@@ -38,7 +38,6 @@ export class MovieDetailComponent implements OnInit {
   }
 
 
-
   openModal(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { MoviesDataService } from '../movies-data.service';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { MoviesDataService } from '../../movies-data.service';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { Movie } from '../movie.model';
+import { Movie } from '../../movie.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -13,13 +13,12 @@ export class MovieEditComponent implements OnInit {
   movie: Movie;
   id: number;
   editMovieForm: FormGroup
+  @Output() childEvent = new EventEmitter();
 
 
   constructor(
     private moviesDataService: MoviesDataService,
     private route: ActivatedRoute,
-    private router: Router,
-
   ) { }
 
   ngOnInit() {
@@ -42,18 +41,19 @@ export class MovieEditComponent implements OnInit {
       ]),
       'genre': new FormControl(this.movie.genre, Validators.required),
       'serialNumber': new FormControl(this.movie.serialNumber),
-
     })
-
   }
 
   onUpdateMovie() {
     this.moviesDataService.updateMovie(this.id, this.editMovieForm.value);
   }
 
-
   onDelete() {
     console.log('item deleted', this.id);
     this.moviesDataService.deleteMovie(this.id);
+  }
+
+  closeModal() {
+    console.log(`this is a test`);
   }
 }
