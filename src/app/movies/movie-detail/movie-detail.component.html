@@ -8,7 +8,7 @@
       <p class="card-text">Serial Number:{{ movie.serialNumber }}</p>
       <p class="card-text">runtime: {{movie.runtime}}</p>
       <div class="album-detail-btn-group">
-        <button class="btn btn-outline-warning" (click)="open(content)">edit</button>
+        <button class="btn btn-outline-warning" (click)="openModal(content)">edit</button>
         <button class="btn btn-outline-dark" (click)="onClose()">Close</button>
       </div>
     </div>
@@ -25,9 +25,9 @@
     </button>
   </div>
   <div class="modal-body">
-    <app-movie-edit></app-movie-edit>
+    <app-movie-edit (close)="onCloseModal($event)"></app-movie-edit>
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-outline-warning" (click)="modal.close('Save click')">Save</button>
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Return</button>
   </div>
 </ng-template>

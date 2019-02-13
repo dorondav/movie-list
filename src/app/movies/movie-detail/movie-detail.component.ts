@@ -13,8 +13,10 @@ export class MovieDetailComponent implements OnInit {
   movie: Movie;
   id: number;
   closeResult: string;
+  openModule;
 
-  openModule
+
+
   constructor(
     private moviesDataService: MoviesDataService,
     private route: ActivatedRoute,
@@ -37,12 +39,15 @@ export class MovieDetailComponent implements OnInit {
 
 
 
-  open(content) {
+  openModal(content) {
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+
     });
+    this.router.navigate(['/movies']);
+
   }
 
 

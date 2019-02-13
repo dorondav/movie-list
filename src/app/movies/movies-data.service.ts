@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Movie } from './movie.model';
 import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesDataService {
+  movieChange = new Subject<Movie[]>();
   moviesArray: Movie[] = [];
 
   constructor(private http: HttpClient) { this.getMovieFromJson() }
@@ -27,4 +29,8 @@ export class MoviesDataService {
     return this.moviesArray[index];
   }
 
+  updateMovie(index: number, newMovie: Movie) {
+    this.moviesArray[index] = newMovie;
+    this.movieChange.next(this.moviesArray.slice());
+  }
 }

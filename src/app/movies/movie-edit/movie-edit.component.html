@@ -50,12 +50,20 @@
           <span class="errorMsg" *ngIf="!editMovieForm.get('genre').valid && editMovieForm.get('genre').touched">This
             name is invalid!</span>
         </div>
-
         <div class="form-group">
-          <label for=" serialNumber">Movie serialNumber:</label>
-          <p>#{{movie.serialNumber}}</p>
+          <label for="serialNumber"> serialNumbers:</label>
+          <input type="text" formControlName="serialNumber" class="form-control" id="serialNumber" name="serialNumber"
+            aria-describedby="serialNumber">
+          <span class="errorMsg"
+            *ngIf="!editMovieForm.get('serialNumber').valid && editMovieForm.get('serialNumber').touched">This
+            name is invalid!</span>
         </div>
+        <!--   <div class="form-group">
+          <label for="serialNumber">Movie serialNumber:</label>
+          <p>#{{movie.serialNumber}}</p>
+        </div> -->
       </form>
+      <button class=" btn btn-warning btn-save" (click)="onUpdateMovie()">Save</button>
       <button class=" btn btn-outline-danger btn-delete">delete</button>
     </div>
   </div>
