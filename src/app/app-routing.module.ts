@@ -18,7 +18,6 @@ const routes: Routes = [
     ]
   },
   { path: 'add-movie', component: AddMovieComponent },
-  // { path: 'page-not-found', component: PageNotFoundComponent },
   { path: "**", component: PageNotFoundComponent }
 ];
 

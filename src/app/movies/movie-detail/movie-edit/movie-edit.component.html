@@ -7,7 +7,7 @@
           <input type="text" formControlName="title" class="form-control" id="title" name="title"
             aria-describedby="title">
           <span class="errorMsg" *ngIf="!editMovieForm.get('title').valid && editMovieForm.get('title').touched">This
-            name is invalid!</span>
+            title field is invalid!</span>
         </div>
         <div class="form-group">
           <label for="director"> Director</label>
@@ -15,7 +15,7 @@
             aria-describedby="director">
           <span class="errorMsg"
             *ngIf="!editMovieForm.get('director').valid && editMovieForm.get('director').touched">This
-            name is invalid!</span>
+            director name field is invalid!</span>
         </div>
 
         <div class="form-group">
@@ -23,7 +23,7 @@
           <input type="date" formControlName="year" class="form-control" placeholder="{{ movie.year }}" id=" year"
             name="year" aria-describedby="year">
           <span class="errorMsg" *ngIf="!editMovieForm.get('year').valid && editMovieForm.get('year').touched">This
-            name is invalid!</span>
+            year field is invalid!</span>
         </div>
         <div class="form-group">
           <label for="runtime">Runtime (Min):</label>
@@ -31,14 +31,14 @@
             aria-describedby="runtime">
           <span class="errorMsg"
             *ngIf="!editMovieForm.get('runtime').valid && editMovieForm.get('runtime').touched">This
-            name is invalid!</span>
+            runtime field is invalid!</span>
         </div>
         <div class="form-group">
           <label for="genre"> Genres:</label>
           <input type="text" formControlName="genre" class="form-control" id="genre" name="genre"
             aria-describedby="genre">
           <span class="errorMsg" *ngIf="!editMovieForm.get('genre').valid && editMovieForm.get('genre').touched">This
-            name is invalid!</span>
+            genre field is invalid!</span>
         </div>
         <div class="form-group">
           <input type="hidden" formControlName="serialNumber" class="form-control" id="serialNumber"

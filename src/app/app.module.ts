@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 //* Third Party Components */
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -19,10 +20,10 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { MovieEditComponent } from './movies/movie-detail/movie-edit/movie-edit.component';
 import { AddMovieComponent } from './movies/add-movie/add-movie.component';
 
-//* Services */
+//* Services  & Pipes*/
 import { MoviesDataService } from './movies/movies-data.service';
-import { ReactiveFormsModule } from '@angular/forms';
-
+import { TrimPipe } from './shared/trim.pipe';
+import { capitalizeFirstLetterPipe } from './shared/capitalizeLetters.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,14 +35,17 @@ import { ReactiveFormsModule } from '@angular/forms';
     MovieComponent,
     PageNotFoundComponent,
     HomePageComponent,
-    AddMovieComponent
+    AddMovieComponent,
+    TrimPipe,
+    capitalizeFirstLetterPipe
+
+
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     HttpClientModule,
     AppRoutingModule,
-
     NgbModule,
   ],
   providers: [MoviesDataService],

@@ -3,6 +3,7 @@ import { MoviesDataService } from '../../movies-data.service';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Movie } from '../../movie.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-movie-edit',
@@ -25,7 +26,6 @@ export class MovieEditComponent implements OnInit {
       (params: Params) => {
         this.id = +params['id'];
         this.movie = this.moviesDataService.selectMovie(this.id);
-        console.log('edit ', this.id);
       }
     );
     this.initForm();
@@ -33,7 +33,7 @@ export class MovieEditComponent implements OnInit {
   }
   initForm() {
     this.editMovieForm = new FormGroup({
-      'title': new FormControl(this.movie.title, Validators.required),
+      'title': new FormControl(this.movie.title, [Validators.required,/*  this.editTitleValidator.bind(this) */]),
       'director': new FormControl(this.movie.director, Validators.required),
       'year': new FormControl(this.movie.year, Validators.required),
       'runtime': new FormControl(this.movie.runtime, [Validators.required, Validators.pattern(/^[1-9]+[0-9]*$/)
@@ -47,5 +47,27 @@ export class MovieEditComponent implements OnInit {
     this.moviesDataService.updateMovie(this.id, this.editMovieForm.value);
   }
 
+
+  /*  editTitleValidator(control: FormControl): Promise<any> | Observable<any> {
+     const promise = new Promise<any>((resolve, reject) => {
+       let existingItitle = this.movie.title.toLowerCase();
+       let formResult = control.value.toLowerCase();
+       setTimeout(() => {
+         control.valueChanges.subscribe(res => {
+           res = formResult;
+           if (existingItitle === formResult) {
+             console.log('sdf', formResult);
+             console.log("existingItitle", existingItitle);
+             resolve({ 'titleNotValid': true });
+           } else {
+             resolve(null);
+           }
+         })
+       }, 1500);
+ 
+     });
+     return promise;
+   }
+  */
 
 }

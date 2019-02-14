@@ -3,11 +3,15 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MoviesDataService } from '../movies-data.service';
 import { Movie } from '../movie.model';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { TrimPipe } from '../../shared/trim.pipe';
+import { capitalizeFirstLetterPipe } from '../../shared/capitalizeLetters.pipe';
 
 @Component({
   selector: 'app-movie-detail',
   templateUrl: './movie-detail.component.html',
-  styleUrls: ['./movie-detail.component.css']
+  styleUrls: ['./movie-detail.component.css'],
+  providers: [TrimPipe, capitalizeFirstLetterPipe]
+
 })
 export class MovieDetailComponent implements OnInit {
   movie: Movie;
@@ -33,7 +37,6 @@ export class MovieDetailComponent implements OnInit {
   }
 
   onDelete() {
-    console.log('item deleted', this.id);
     this.moviesDataService.deleteMovie(this.id);
   }
 

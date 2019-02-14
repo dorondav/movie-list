@@ -8,8 +8,12 @@ import { Subject } from 'rxjs';
 export class MoviesDataService {
   movieChange = new Subject<Movie[]>();
   moviesArray: Movie[] = [];
+  titleName = [];
+  movie: any;
 
-  constructor(private http: HttpClient) { this.getMovieFromJson() }
+  constructor(private http: HttpClient) {
+    this.getMovieFromJson();
+  }
 
   getMovieFromJson() {
     return this.http.get('assets/data/movies.json')
@@ -17,7 +21,6 @@ export class MoviesDataService {
         for (let i = 0; i < 3; i++) {
           this.moviesArray.push(<Movie>data[i])
         }
-        // console.log('getMovieFromJson', this.moviesArray);
       })
   }
 
@@ -41,4 +44,9 @@ export class MoviesDataService {
     this.moviesArray.splice(index, 1);
     this.movieChange.next(this.moviesArray.slice());
   }
+
+
+
+
+
 }

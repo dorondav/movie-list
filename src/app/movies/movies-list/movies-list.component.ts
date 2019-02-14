@@ -14,7 +14,6 @@ export class MoviesListComponent implements OnInit {
 
   ngOnInit() {
     this.moviesArray = this.moviesDataService.getMovies()
-    console.log('movies-list', this.moviesArray);
   }
 
   onEmptyArray() {
